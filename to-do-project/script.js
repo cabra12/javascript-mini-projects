@@ -2,16 +2,23 @@ let toDoList = document.getElementById('todo-list');
 const toDoInput = document.getElementById('todo-input');
 const submitButton = document.getElementById('add-btn');
 const jItems = document.getElementById('items');
+const jCheckedItems = document.getElementById('checked-items');
 let listItems = 0;
+let checkedItems = 0;
 
 const spanElement = document.createElement('span');
+const checkedSpan = document.createElement('span');
 
 const updateCount = () => {
-    if(listItems === 1) {
-        spanElement.textContent = 'You have 1 task pending';
-    }else {
-        spanElement.textContent = `You have ${listItems} tasks pending`;
+    spanElement.textContent = `Tasks Pending: ${listItems - checkedItems}`;
+
+    if(checkedItems > 0) {
+        checkedSpan.textContent = `Completed: ${checkedItems}`;
+        jCheckedItems.appendChild(checkedSpan);
+    } else {
+        checkedSpan.remove();
     }
+    
 };
 
 if(jItems) {
@@ -41,12 +48,23 @@ submitButton.addEventListener('click', () => {
             if(e.target.tagName === 'LI') {
                 //e here stands for event, this is crucial to get event.target
                 //when you click the <li> that feeds "LI" to this conditional
-                e.target.classList.toggle('checked');
-                //toggle will add the class if clicked once and then remove the class if clicked twice
-                //this will adequately look "checked" and "unchecked"
+                if(e.target.classList.contains('checked')) {
+                    e.target.classList.remove('checked');
+                    checkedItems--;
+                    updateCount();
+
+                } else {
+                    e.target.classList.add('checked');
+                    checkedItems++;
+                    updateCount();
+                }
             }
             else if(e.target.tagName === 'SPAN') {
-                e.target.parentElement.remove();
+                const parentItem = e.target.parentElement;
+                if(parentItem.classList.contains('checked')) {
+                    checkedItems--;
+                }
+                parentItem.remove();
                 listItems--;
                 updateCount();
             }
