@@ -1,6 +1,6 @@
 # Multiple Simple Javascript Projects
 
-Click into each folder to see the code for these Javascript projects. Below are some screenshots of each projects.
+Click into each folder to see the code for the Javascript projects. Below are some screenshots of each project.
 
 ## To-Do App
 
