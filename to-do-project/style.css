@@ -1,0 +1,121 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+	line-height: 1;
+    background-color: #e6d4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-size: 16px;
+}
+
+.center-box {
+    background-color: #fff;
+    border-radius: 1rem;
+    padding: 2rem 3rem;
+    width: 100%;
+    max-width: 500px;
+}
+
+.input-field {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fce3d5;
+    border-radius: 2rem;
+    padding: 1rem;
+    margin-bottom: 2rem;
+}
+
+.input-field:focus-within {
+    border: 2px solid #9642d6;
+}
+
+#todo-input {
+    border: none;
+    flex: 1;
+    outline: none;
+    background-color: transparent;
+    padding: 0.5rem;
+}
+
+#add-btn {
+    border: none;
+    outline: none;
+    background-color: #9642d6;
+    color: #fff;
+    border: 0 solid #fff;
+    border-radius: 2.5rem;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+input, button {
+    font-size: 1rem;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+ul li {
+    list-style: none;
+    font-size: 1.1rem;
+    padding: 12px 8px 12px 75px;
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    width: 350px;
+}
+
+ul li::before {
+    content: '';
+    position: absolute;
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    background-image: url(images/unchecked.png);
+    background-size: cover;
+    background-position: center;
+    top: 6px;
+    left: 20px;
+    cursor: pointer;
+}
+
+ul li span {
+    position: absolute; 
+    right: -30px;
+    top: 5px;
+    font-size: 22px;
+    color: #eb1e1e;
+    line-height: 30px;
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    cursor: pointer;
+}
+
+ul li span:hover {
+    background-color: #f96060;
+
+}
+
+ul li.checked {
+	color: #555;
+	text-decoration: line-through;
+}
+
+ul li.checked::before {
+	background-image: url(images/checked.png);
+}
+
+.divider {
+    margin: 1rem 0 1rem;
+}
